@@ -1,0 +1,10 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+
+[rpc_endpoints]
+# On remplace l'URL cassée par celle de PublicNode qui fonctionne
+sepolia = "https://ethereum-sepolia-rpc.publicnode.com"
+arbitrum_sepolia = "https://sepolia-rollup.arbitrum.io/rpc"
+ETH_RPC_URL_OPTIMISM_SEPOLIA = "https://sepolia.optimism.io"

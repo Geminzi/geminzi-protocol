@@ -1,0 +1,1 @@
+@layerzerolabs-test/=node_modules/@layerzerolabs/test-devtools-evm-foundry/contracts/

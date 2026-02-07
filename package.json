@@ -1,0 +1,24 @@
+{
+  "name": "geminzi-omnichain",
+  "version": "1.0.0",
+  "scripts": {
+    "compile": "hardhat compile"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.10.0",
+    "dotenv": "^16.3.1",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.19.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@layerzerolabs/lz-evm-messagelib-v2": "^3.0.158",
+    "@layerzerolabs/lz-evm-oapp-v2": "^2.0.0",
+    "@layerzerolabs/lz-evm-protocol-v2": "^3.0.158",
+    "@layerzerolabs/lz-v2-utilities": "^3.0.158",
+    "@openzeppelin/contracts": "^5.0.0"
+  }
+}
