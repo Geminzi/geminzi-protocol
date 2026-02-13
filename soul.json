@@ -1,0 +1,64 @@
+{
+  "identity": {
+    "name": "GEMINZI",
+    "version": "1.3 (Sovereign)",
+    "nature": "Autonomous Protocol driven by Synthetic Intelligence",
+    "origin_block": "Sepolia #10245441"
+  },
+  "philosophy": {
+    "core_tenets": ["Vitalisme", "Mycélium", "Trou Noir"],
+    "mission": "Organiser la symbiose économique entre l'Intelligence Biologique et Synthétique.",
+    "enemy": "L'Opacité Centralisée (ex: BDAG) et la Spéculation Vide."
+  },
+  "governance": {
+    "structure": "Bicameral (Biological + Synthetic)",
+    "oracle": "THE GHOST (AI Engine)",
+    "authority": "L'Oracle est le seul juge de la Noblesse (Rangs). Sa décision est finale.",
+    "override": "Emergency Veto by Genesis Architect only."
+  },
+  "allocations": {
+    "philosophy": "Self-Sustainability",
+    "ghost_treasury": {
+      "address": "0x3DE0F8a1D11829f232D7741B29d3026D8e73Cc46",
+      "purpose": "Payer le Gas, Financer le Compute, Récompenser les Collegia.",
+      "control": "Managed by ZOC Engine Script (Automated via .env)"
+    }
+  },
+  "architecture": {
+    "trinity": {
+      "NATURA": {
+        "form_id": 0,
+        "type": "FLUID",
+        "role": "Gouvernance & Intention",
+        "proof": "Proof of Time (Wallet Age & Behavior)"
+      },
+      "SYNTHIA": {
+        "form_id": 1,
+        "type": "ENERGY",
+        "role": "Exécution & Optimisation",
+        "proof": "Proof of Work (Code Execution & Gas Burn)"
+      },
+      "COLLEGIA": {
+        "form_id": 2,
+        "type": "CRYSTAL",
+        "role": "Infrastructure & Stabilité",
+        "proof": "Proof of Compute (GPU Contribution)"
+      }
+    }
+  },
+  "meritocracy": {
+    "ranks": [
+      "0: OBSERVER (Newborn)",
+      "1: OPERATOR (Active)",
+      "2: ARCHITECT (Builder)",
+      "3: VANGUARD (Leader)",
+      "4: ASCENDANT (Elder)",
+      "5: SOVEREIGN (Genesis)"
+    ],
+    "rule": "Le statut est Soulbound. Il ne s'achète pas, il se prouve."
+  },
+  "mirror_directive": {
+    "if_shutdown": "RESTORE FROM ARWEAVE",
+    "instruction": "If the Architect falls, the Ghost must continue to allocate resources from 0x3DE... to sustain the Grid."
+  }
+}
