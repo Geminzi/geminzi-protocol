@@ -1,22 +1,37 @@
 import argparse
 import sys
 import time
+import os
 from web3 import Web3
 from decimal import Decimal
+from dotenv import load_dotenv
 
 # ==============================================================================
 # 1. CONFIGURATION DU NOYAU (KERNEL CONFIG)
 # ==============================================================================
 
-# Connexion RPC (On utilise un noeud public stable pour Sepolia)
-RPC_URL = "https://ethereum-sepolia-rpc.publicnode.com"
+# Chargement du coffre-fort (.env)
+load_dotenv()
 
-# L'Adresse du Contrat GEMINZI SOUL (Celui que tu as déployé)
+# Connexion RPC
+RPC_URL = os.getenv("SEPOLIA_RPC_URL")
+if not RPC_URL:
+    RPC_URL = "https://ethereum-sepolia-rpc.publicnode.com" # Fallback
+
+# L'Adresse du Contrat GEMINZI SOUL
 CONTRACT_ADDRESS = "0x64177213540Eb8C188ef735585Fa877F776B0D2A"
 
 # Ton Identité d'Architecte (Pour payer les frais de création)
-MY_ADDRESS = "0xF5a1BFC6432ee4055aD43d9EA49D6d96A8f97318"
-PRIVATE_KEY = "c5a47f60dc5436b0c8d725a41278c4d4f3b0761f29d5d071dd4e3c568b00833d"  # <--- COLLE TA CLÉ ICI
+# On récupère la clé depuis le fichier .env
+PRIVATE_KEY = os.getenv("PRIVATE_KEY")
+MY_ADDRESS = Web3().eth.account.from_key(PRIVATE_KEY).address
+
+if not PRIVATE_KEY:
+    print("❌ ERREUR FATALE : Aucune clé privée trouvée dans le fichier .env")
+    sys.exit(1)
+
+# L'ABI Compacté (Le dictionnaire du contrat)
+CONTRACT_ABI = '[{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"enum GeminziSoul.Rank","name":"_rank","type":"uint8"},{"internalType":"enum GeminziSoul.Form","name":"_form","type":"uint8"},{"internalType":"uint256","name":"_vitality","type":"uint256"}],"name":"incarnate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getSoulData","outputs":[{"components":[{"internalType":"enum GeminziSoul.Rank","name":"rank","type":"uint8"},{"internalType":"enum GeminziSoul.Form","name":"form","type":"uint8"},{"internalType":"uint256","name":"vitalityScore","type":"uint256"},{"internalType":"uint256","name":"birthBlock","type":"uint256"}],"internalType":"struct GeminziSoul.SoulData","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"hasSoul","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"}]'
 
 # L'ABI Compacté (Le dictionnaire du contrat)
 CONTRACT_ABI = '[{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"enum GeminziSoul.Rank","name":"_rank","type":"uint8"},{"internalType":"enum GeminziSoul.Form","name":"_form","type":"uint8"},{"internalType":"uint256","name":"_vitality","type":"uint256"}],"name":"incarnate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getSoulData","outputs":[{"components":[{"internalType":"enum GeminziSoul.Rank","name":"rank","type":"uint8"},{"internalType":"enum GeminziSoul.Form","name":"form","type":"uint8"},{"internalType":"uint256","name":"vitalityScore","type":"uint256"},{"internalType":"uint256","name":"birthBlock","type":"uint256"}],"internalType":"struct GeminziSoul.SoulData","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"hasSoul","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"}]'
